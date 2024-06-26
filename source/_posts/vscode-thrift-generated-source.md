@@ -7,28 +7,28 @@ title: thrift生成的java源码，vscode无法识别
 
 ### 在POM文件增加Plugin代码
 
-``` pom.xml
+```xml
 <plugin>
-					<!-- a hint for IDE's to add the java sources to the classpath -->
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>3.4.0</version>
-					<executions>
-					<execution>
-						<?m2e execute onConfiguration,onIncremental?>
-						<id>add-source</id>
-						<phase>generate-sources</phase>
-						<goals>
-						<goal>add-source</goal>
-						</goals>
-						<configuration>
-						<sources>
-							<source>${project.build.directory}/generated-sources/thrift</source>
-						</sources>
-						</configuration>
-					</execution>
-					</executions>
-				</plugin>
+    <!-- a hint for IDE's to add the java sources to the classpath -->
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>build-helper-maven-plugin</artifactId>
+    <version>3.4.0</version>
+    <executions>
+    <execution>
+        <?m2e execute onConfiguration,onIncremental?>
+        <id>add-source</id>
+        <phase>generate-sources</phase>
+        <goals>
+        <goal>add-source</goal>
+        </goals>
+        <configuration>
+        <sources>
+            <source>${project.build.directory}/generated-sources/thrift</source>
+        </sources>
+        </configuration>
+    </execution>
+    </executions>
+</plugin>
 ```
 
 刷新VSCode，不能识别的源代码正常了。
